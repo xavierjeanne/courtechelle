@@ -1,14 +1,18 @@
 <?php get_header(); ?>
-<section class="entry-section">
-
-    <?php
-    if (have_posts()): the_post();
-        // Load default block template page
-        get_template_part('template-parts/page/content', 'default');
-
-    endif;
-    ?>
-
-    <?php wp_link_pages(); ?>
-</section>
+    <div class="row m-3" id="description">
+        <h2 class="w-100">Découvrir la Courtéchelle</h2>
+    </div>
+    <div class="row m-3" id="videos">
+        <h2 class="w-100 text-right">Videos</h2>
+    </div>
+    <div class="row m-3" id="concert">
+        <h2>Date de concert</h2>
+    </div>
+    <div class="row m-3" id="gallery">
+        <h2 class="w-100 text-right">Galerie de photos</h2>
+    </div>
+    <div class="row m-3" id="contact">
+        <h2 class="w-100">Me contacter</h2>
+        <?php echo do_shortcode('[contact-form-7 id="5" title="Contact"]');?>
+    </div>
 <?php get_footer(); ?>

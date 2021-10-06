@@ -8,7 +8,7 @@
 if( function_exists('acf_add_options_page') ) {
 
     acf_add_options_page(array(
-        'page_title' 	=> 'Paramètres WP',
+        'page_title' 	=> 'Paramètres personnel',
         'menu_title'	=> 'Paramètres WP',
         'menu_slug' 	=> 'theme-general-settings',
         'capability'	=> 'edit_posts',
@@ -16,26 +16,14 @@ if( function_exists('acf_add_options_page') ) {
     ));
 
     acf_add_options_sub_page(array(
-        'page_title' 	=> 'Paramètres Home',
-        'menu_title'	=> 'Home',
+        'page_title' 	=> 'Réseaux sociaux',
+        'menu_title'	=> 'Réseaux',
         'parent_slug'	=> 'theme-general-settings',
     ));
 
     acf_add_options_sub_page(array(
-        'page_title' 	=> 'Partenaires',
-        'menu_title'	=> 'Partenaires',
-        'parent_slug'	=> 'theme-general-settings',
-    ));
-
-    acf_add_options_sub_page(array(
-        'page_title' 	=> 'Newsletter',
-        'menu_title'	=> 'Newsletter',
-        'parent_slug'	=> 'theme-general-settings',
-    ));
-
-    acf_add_options_sub_page(array(
-        'page_title' 	=> 'Formulaire de Contact',
-        'menu_title'	=> 'Contact',
+        'page_title' 	=> 'Pages d\'accueil',
+        'menu_title'	=> 'Acceuil',
         'parent_slug'	=> 'theme-general-settings',
     ));
 
@@ -83,3 +71,17 @@ function yoasttobottom() {
     return 'low';
 }
 add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
+
+function remove_menu_items() {
+	global $menu;
+	$restricted = array(__('Links'), __('Comments'), __('Media'),
+	__('Plugins'), __('Tools'), __('Users'),__('Posts'));
+	end ($menu);
+	while (prev($menu)){
+	$value = explode(' ',$menu[key($menu)][0]);
+	
+	if (in_array($value[0] != NULL?$value[0]:"" , $restricted)){
+		unset($menu[key($menu)]);}
+	}
+}
+add_action('admin_menu', 'remove_menu_items');

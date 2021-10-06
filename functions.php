@@ -5,6 +5,7 @@ include('inc/constants.php');
 // Include your functions files here
 include('inc/enqueues.php');
 include('inc/excerpt.php');
+include('inc/class-wp-bootstrap-navwalker.php');
 
 /**
  * Don't hesitate to use the WP code snippet generator Hasty : https://www.wp-hasty.com/
@@ -49,7 +50,8 @@ if ( ! isset($content_width)) {
  */
 //@TODO : declare your menus here
 register_nav_menus(array(
-    'main_menu' => __('Main menu', I18N_DOMAIN)
+    'main_menu' => __('Main menu', I18N_DOMAIN),
+    'footer_menu' => __('Footer menu', I18N_DOMAIN),
 ));
 
 
@@ -105,5 +107,16 @@ include_once( get_stylesheet_directory() .'/inc/back-office.php');
 include_once( get_stylesheet_directory() .'/inc/mails.php');
 
 
-
+//edit placeholder custom type
+function wpb_change_title_text( $title ){
+     $screen = get_current_screen();
+  
+     if  ( 'concert' == $screen->post_type ) {
+          $title = 'Entrer le lieu du concert';
+     }
+     
+     return $title;
+}
+  
+add_filter( 'enter_title_here', 'wpb_change_title_text' );
 

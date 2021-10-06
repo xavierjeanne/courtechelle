@@ -1,6 +1,6 @@
-</section>
-<footer id="footer">
-</footer>
-<?php wp_footer(); ?>
-</body>
+        <footer id="footer">
+        </footer>
+        <?php wp_footer(); ?>
+    </div>
+    </body>
 </html>

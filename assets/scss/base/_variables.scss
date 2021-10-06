@@ -4,3 +4,20 @@
  * Bootstrap variables list: https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss
  * Set your own theme: https://pikock.github.io/bootstrap-magic/app/index.html#!/editor
  */
+
+//Breakpoints
+$breakpoint-xl: 1200px;
+$breakpoint-lg: 992px;
+$breakpoint-md: 768px;
+$breakpoint-sm: 575px;
+//colors
+$dark: #4a4a47;
+$grey: #F6F6f6;
+$grey_blue: #EDF3FF;
+$font-regular: 'Roboto Regular';
+$font-bold: 'Roboto Bold';
+$font-extra-bold: 'Roboto ExtraBold';
+$font-semi-bold: 'Roboto SemiBold';
+$font-semi-bold-italic: 'Roboto SemiBoldItalic';
+$font-medium-italic: 'Roboto Italic';
+$font-medium: 'Roboto Medium';
