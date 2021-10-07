@@ -31,7 +31,6 @@
     ?>
 </head>
 <body <?php echo body_class(); ?>>
-<div class="container-fluid">
     <header id="header" role="banner">
     <nav class="navbar navbar-expand-lg">
         <span class="logo">Courtéchelle</span>
